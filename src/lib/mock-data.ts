@@ -165,3 +165,113 @@ export const insights = [
     tone: "neutral" as const,
   },
 ];
+
+export const notifications = [
+  {
+    id: "n1",
+    title: "Budget alert",
+    body: "You have used 80% of your monthly budget.",
+    time: "2 hours ago",
+    read: false,
+  },
+  {
+    id: "n2",
+    title: "Goal milestone",
+    body: "Japan trip is 47% complete.",
+    time: "5 hours ago",
+    read: false,
+  },
+  {
+    id: "n3",
+    title: "Account update",
+    body: "HDFC Savings balance changed.",
+    time: "1 day ago",
+    read: true,
+  },
+  {
+    id: "n4",
+    title: "Weekly summary",
+    body: "You spent ₹4,230 less than last week.",
+    time: "2 days ago",
+    read: true,
+  },
+  {
+    id: "n5",
+    title: "New feature",
+    body: "Investment tracker is now available.",
+    time: "3 days ago",
+    read: true,
+  },
+];
+
+export const debts = [
+  { id: "d1", name: "Home loan", total: 500000, remaining: 320000, rate: 8.5, emi: 12500 },
+  { id: "d2", name: "Car loan", total: 300000, remaining: 180000, rate: 9.2, emi: 8500 },
+  { id: "d3", name: "Credit card", total: 50000, remaining: 12480, rate: 36, emi: 4500 },
+];
+
+export const investments = [
+  { id: "i1", name: "Index funds", type: "Mutual funds", value: 420000, gain: 45000 },
+  { id: "i2", name: "Fixed deposit", type: "Debt", value: 200000, gain: 18000 },
+  { id: "i3", name: "Stocks", type: "Equity", value: 150000, gain: -12000 },
+  { id: "i4", name: "Gold ETF", type: "Commodity", value: 80000, gain: 6500 },
+  { id: "i5", name: "PPF", type: "Retirement", value: 120000, gain: 14000 },
+  { id: "i6", name: "Cash", type: "Liquid", value: 50000, gain: 0 },
+];
+
+export const blogPosts = [
+  {
+    slug: "budget-that-lasts",
+    title: "How to build a budget that actually lasts",
+    excerpt: "Start simple, track for 30 days, and adjust only after you see real patterns.",
+    date: "Sep 2, 2026",
+    read: "6 min read",
+    content:
+      "Most budgets fail because they are too ambitious from day one. The best approach is to start with a simple template, track every expense for 30 days, and then adjust limits based on real behavior rather than ideals.",
+  },
+  {
+    slug: "503020-rule",
+    title: "The 50/30/20 rule, modernized",
+    excerpt: "A flexible take on needs, wants, and goals for today’s income patterns.",
+    date: "Aug 28, 2026",
+    read: "5 min read",
+    content:
+      "The classic 50/30/20 rule still works, but modern incomes are less predictable. Try a sliding version: needs get priority, wants are capped by available surplus, and goals get automated transfers so they happen before spending.",
+  },
+  {
+    slug: "cash-flow-vs-net-worth",
+    title: "Why cash flow matters more than net worth",
+    excerpt: "Net worth is a snapshot; cash flow is the movie. Here is how to use both.",
+    date: "Aug 20, 2026",
+    read: "7 min read",
+    content:
+      "Net worth is useful for long-term progress, but cash flow tells you whether you are actually moving forward each month. Focus on improving monthly free cash flow first, then let net worth catch up.",
+  },
+  {
+    slug: "automating-savings",
+    title: "Automating savings without the guilt",
+    excerpt: "Small, automatic transfers can grow into big results—without willpower.",
+    date: "Aug 14, 2026",
+    read: "4 min read",
+    content:
+      "Automation removes the emotional decision from saving. Start with one small automatic transfer to a separate account, then increase it slowly. The goal is consistency, not a huge cut to your lifestyle.",
+  },
+  {
+    slug: "negotiate-bills",
+    title: "How to negotiate bills and subscriptions",
+    excerpt: "A simple script and timing checklist to lower recurring costs.",
+    date: "Aug 6, 2026",
+    read: "5 min read",
+    content:
+      "Call before your next renewal date, ask for the retention or loyalty rate, and have one competing offer ready. Even a 10% reduction on a few subscriptions adds up to real money over a year.",
+  },
+  {
+    slug: "emergency-funds",
+    title: "Emergency funds in the real world",
+    excerpt: "How much is enough, where to keep it, and when to actually use it.",
+    date: "Jul 30, 2026",
+    read: "6 min read",
+    content:
+      "Aim for three to six months of necessary expenses in a liquid, low-risk account. Keep it separate from everyday spending, and only use it for genuine emergencies—not planned purchases.",
+  },
+];

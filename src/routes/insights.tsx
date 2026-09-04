@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Sparkles, TrendingDown, TrendingUp, AlertCircle } from "lucide-react";
+import { Activity, TrendingDown, TrendingUp, AlertCircle } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { FlowChart, ProgressBar } from "@/components/Charts";
 import { categories, inr, insights } from "@/lib/mock-data";
@@ -8,9 +8,16 @@ export const Route = createFileRoute("/insights")({
   head: () => ({
     meta: [
       { title: "Insights — Budgetly" },
-      { name: "description", content: "Personalised spending insights, category trends and habits worth changing this month." },
+      {
+        name: "description",
+        content:
+          "Personalised spending insights, category trends and habits worth changing this month.",
+      },
       { property: "og:title", content: "Insights — Budgetly" },
-      { property: "og:description", content: "Understand spending patterns and where to save next." },
+      {
+        property: "og:description",
+        content: "Understand spending patterns and where to save next.",
+      },
     ],
   }),
   component: Insights,
@@ -23,7 +30,7 @@ function Insights() {
     <AppShell title="Insights">
       <div className="animate-fade-up">
         <span className="inline-flex items-center gap-2 rounded-full bg-secondary px-4 py-1.5 text-xs font-semibold">
-          <Sparkles className="h-3.5 w-3.5" /> UPDATED TODAY
+          <Activity className="h-3.5 w-3.5" /> UPDATED TODAY
         </span>
         <h1 className="mt-4 text-4xl font-extrabold">Make your money work</h1>
         <p className="mt-2 max-w-xl text-muted-foreground">
@@ -48,7 +55,9 @@ function Insights() {
                 <Icon className="h-5 w-5" />
               </span>
               <h2 className="mt-5 text-lg font-semibold">{n.title}</h2>
-              <p className={`mt-2 text-sm ${i === 0 ? "text-ink-foreground/75" : "text-muted-foreground"}`}>
+              <p
+                className={`mt-2 text-sm ${i === 0 ? "text-ink-foreground/75" : "text-muted-foreground"}`}
+              >
                 {n.body}
               </p>
             </div>

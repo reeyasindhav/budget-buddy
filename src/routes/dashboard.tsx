@@ -6,18 +6,26 @@ import {
   ArrowUpRight,
   PiggyBank,
   HelpCircle,
+  ArrowDownRight,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
-import { DonutChart, ProgressBar } from "@/components/Charts";
-import { categories, goals, inr, summary, transactions, user } from "@/lib/mock-data";
+import { DonutChart, FlowChart, ProgressBar } from "@/components/Charts";
+import { categories, goals, inr, monthlyFlow, summary, transactions, user } from "@/lib/mock-data";
 
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
       { title: "Dashboard — Budgetly" },
-      { name: "description", content: "Your monthly financial snapshot: balance, income, spending by category and savings goal progress." },
+      {
+        name: "description",
+        content:
+          "Your monthly financial snapshot: balance, income, spending by category and savings goal progress.",
+      },
       { property: "og:title", content: "Dashboard — Budgetly" },
-      { property: "og:description", content: "A clear snapshot of balance, budget usage and goal progress." },
+      {
+        property: "og:description",
+        content: "A clear snapshot of balance, budget usage and goal progress.",
+      },
     ],
   }),
   component: Dashboard,
@@ -54,7 +62,9 @@ function Dashboard() {
         <div>
           <p className="font-semibold text-muted-foreground">Good morning, {user.firstName}</p>
           <h1 className="mt-2 text-4xl font-extrabold lg:text-5xl">Your money, clearly.</h1>
-          <p className="mt-2 text-muted-foreground">Here's your financial snapshot for September.</p>
+          <p className="mt-2 text-muted-foreground">
+            Here's your financial snapshot for September.
+          </p>
         </div>
         <Link
           to="/transactions"
@@ -81,6 +91,26 @@ function Dashboard() {
             <p className="mt-2 text-xs text-muted-foreground">{s.note}</p>
           </div>
         ))}
+      </div>
+
+      <div className="surface animate-fade-up mt-5 p-7" style={{ animationDelay: "100ms" }}>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h2 className="text-xl font-bold">Cash flow rhythm</h2>
+            <p className="text-sm text-muted-foreground">Income vs spending, last six months</p>
+          </div>
+        </div>
+        <div className="mt-6">
+          <FlowChart />
+        </div>
+        <div className="mt-4 flex gap-6 text-xs text-muted-foreground">
+          <span className="flex items-center gap-2">
+            <span className="h-2.5 w-2.5 rounded-full bg-accent/70" /> Income
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="h-2.5 w-2.5 rounded-full bg-primary" /> Spent
+          </span>
+        </div>
       </div>
 
       <div className="mt-5 grid gap-5 lg:grid-cols-[1.15fr_1fr]">
@@ -210,6 +240,66 @@ function Dashboard() {
               );
             })}
           </div>
+        </div>
+      </div>
+
+      <div className="surface animate-fade-up mt-5 p-7" style={{ animationDelay: "280ms" }}>
+        <h2 className="text-xl font-bold">History</h2>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Past six months at a glance, with month-over-month comparison
+        </p>
+        <div className="mt-6 overflow-x-auto">
+          <table className="w-full min-w-[640px] text-left text-sm">
+            <thead>
+              <tr className="border-b border-border text-xs text-muted-foreground">
+                <th className="pb-3 font-medium">Month</th>
+                <th className="pb-3 font-medium">Income</th>
+                <th className="pb-3 font-medium">Spent</th>
+                <th className="pb-3 font-medium">Budget</th>
+                <th className="pb-3 font-medium">Savings</th>
+                <th className="pb-3 text-right font-medium">MoM spend</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border">
+              {monthlyFlow.map((m, i) => {
+                const prev = i > 0 ? monthlyFlow[i - 1].spent : m.spent;
+                const delta = m.spent - prev;
+                const savings = m.income - m.spent;
+                const budget = summary.budget;
+                const over = m.spent > budget;
+                return (
+                  <tr key={m.month} className="transition-colors hover:bg-secondary/50">
+                    <td className="py-3 font-semibold">{m.month}</td>
+                    <td className="py-3 tabular">{inr(m.income)}</td>
+                    <td className={`py-3 tabular ${over ? "text-destructive" : ""}`}>
+                      {inr(m.spent)}
+                    </td>
+                    <td className="py-3 tabular text-muted-foreground">{inr(budget)}</td>
+                    <td
+                      className={`py-3 tabular ${savings >= 0 ? "text-success" : "text-destructive"}`}
+                    >
+                      {inr(savings)}
+                    </td>
+                    <td className="py-3 text-right">
+                      <span className="inline-flex items-center gap-1 text-xs">
+                        {i === 0 ? (
+                          <span className="text-muted-foreground">—</span>
+                        ) : delta > 0 ? (
+                          <span className="text-destructive">
+                            <ArrowUpRight className="inline h-3.5 w-3.5" /> {inr(delta)}
+                          </span>
+                        ) : (
+                          <span className="text-success">
+                            <ArrowDownRight className="inline h-3.5 w-3.5" /> {inr(Math.abs(delta))}
+                          </span>
+                        )}
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
     </AppShell>

@@ -7,7 +7,10 @@ export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
       { title: "Log in — Budgetly" },
-      { name: "description", content: "Log in to your Budgetly dashboard to track spending, budgets and savings goals." },
+      {
+        name: "description",
+        content: "Log in to your Budgetly dashboard to track spending, budgets and savings goals.",
+      },
       { property: "og:title", content: "Log in — Budgetly" },
       { property: "og:description", content: "Access your Budgetly financial dashboard." },
     ],
@@ -60,7 +63,10 @@ function LoginPage() {
           <label className="flex items-center gap-2 text-muted-foreground">
             <input type="checkbox" defaultChecked className="h-4 w-4 rounded" /> Remember me
           </label>
-          <Link to="/forgot-password" className="font-medium text-accent-foreground hover:underline">
+          <Link
+            to="/forgot-password"
+            className="font-medium text-accent-foreground hover:underline"
+          >
             Forgot password?
           </Link>
         </div>

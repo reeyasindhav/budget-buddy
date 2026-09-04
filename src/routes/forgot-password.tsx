@@ -7,7 +7,10 @@ export const Route = createFileRoute("/forgot-password")({
   head: () => ({
     meta: [
       { title: "Reset your password — Budgetly" },
-      { name: "description", content: "Request a Budgetly password reset link and get back to your dashboard." },
+      {
+        name: "description",
+        content: "Request a Budgetly password reset link and get back to your dashboard.",
+      },
       { property: "og:title", content: "Reset your password — Budgetly" },
       { property: "og:description", content: "Recover access to your Budgetly account." },
     ],

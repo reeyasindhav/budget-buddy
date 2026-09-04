@@ -42,10 +42,10 @@ export function DonutChart({ size = 220, stroke = 30 }: { size?: number; stroke?
 export function FlowChart() {
   const max = Math.max(...monthlyFlow.map((m) => m.income));
   return (
-    <div className="flex h-[220px] items-end gap-4">
+    <div className="flex h-[220px] gap-4">
       {monthlyFlow.map((m, i) => (
         <div key={m.month} className="flex flex-1 flex-col items-center gap-3">
-          <div className="flex h-full w-full items-end justify-center gap-1.5">
+          <div className="flex w-full items-end justify-center gap-1.5" style={{ height: 220 }}>
             <div
               className="animate-fade-up w-1/3 rounded-t-lg bg-accent/70 transition-all duration-300 hover:bg-accent"
               style={{ height: `${(m.income / max) * 100}%`, animationDelay: `${i * 70}ms` }}

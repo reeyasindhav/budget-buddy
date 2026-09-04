@@ -8,7 +8,10 @@ export const Route = createFileRoute("/settings")({
   head: () => ({
     meta: [
       { title: "Settings — Budgetly" },
-      { name: "description", content: "Manage your Budgetly profile, currency, alert preferences and account security." },
+      {
+        name: "description",
+        content: "Manage your Budgetly profile, currency, alert preferences and account security.",
+      },
       { property: "og:title", content: "Settings — Budgetly" },
       { property: "og:description", content: "Profile, preferences and notification controls." },
     ],
@@ -55,7 +58,9 @@ function Settings() {
             key={t}
             onClick={() => setTab(t)}
             className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
-              tab === t ? "bg-primary text-primary-foreground" : "bg-secondary text-muted-foreground"
+              tab === t
+                ? "bg-primary text-primary-foreground"
+                : "bg-secondary text-muted-foreground"
             }`}
           >
             {t}
@@ -119,8 +124,16 @@ function Settings() {
               </select>
             </div>
             <div className="mt-4">
-              <Toggle label="Round up savings" hint="Round each expense up and save the difference." on />
-              <Toggle label="Auto-categorise" hint="Let Budgetly sort new transactions for you." on />
+              <Toggle
+                label="Round up savings"
+                hint="Round each expense up and save the difference."
+                on
+              />
+              <Toggle
+                label="Auto-categorise"
+                hint="Let Budgetly sort new transactions for you."
+                on
+              />
             </div>
           </div>
         )}

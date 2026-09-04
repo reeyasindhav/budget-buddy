@@ -8,7 +8,11 @@ export const Route = createFileRoute("/budgets")({
   head: () => ({
     meta: [
       { title: "Budgets — Budgetly" },
-      { name: "description", content: "Set category budgets, watch progress bars fill and compare six months of income against spending." },
+      {
+        name: "description",
+        content:
+          "Set category budgets, watch progress bars fill and compare six months of income against spending.",
+      },
       { property: "og:title", content: "Budgets — Budgetly" },
       { property: "og:description", content: "Category budgets and monthly cash-flow trends." },
     ],
@@ -86,7 +90,9 @@ function Budgets() {
                 <p className="flex-1 font-semibold">{c.name}</p>
                 <span
                   className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                    over ? "bg-destructive/10 text-destructive" : "bg-secondary text-muted-foreground"
+                    over
+                      ? "bg-destructive/10 text-destructive"
+                      : "bg-secondary text-muted-foreground"
                   }`}
                 >
                   {over ? "Near limit" : "On track"}

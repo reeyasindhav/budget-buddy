@@ -7,9 +7,16 @@ export const Route = createFileRoute("/signup")({
   head: () => ({
     meta: [
       { title: "Create your account — Budgetly" },
-      { name: "description", content: "Sign up for Budgetly and start tracking income, expenses and savings goals in minutes." },
+      {
+        name: "description",
+        content:
+          "Sign up for Budgetly and start tracking income, expenses and savings goals in minutes.",
+      },
       { property: "og:title", content: "Create your account — Budgetly" },
-      { property: "og:description", content: "Free personal finance tracking with clean charts and goal progress." },
+      {
+        property: "og:description",
+        content: "Free personal finance tracking with clean charts and goal progress.",
+      },
     ],
   }),
   component: SignupPage,
@@ -22,7 +29,10 @@ function SignupPage() {
   const [step, setStep] = useState(0);
 
   return (
-    <AuthLayout title="Create your account" subtitle="Three quick steps and your dashboard is live.">
+    <AuthLayout
+      title="Create your account"
+      subtitle="Three quick steps and your dashboard is live."
+    >
       <div className="mb-8 flex gap-2">
         {steps.map((s, i) => (
           <div key={s} className="flex-1">

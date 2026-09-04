@@ -44,18 +44,49 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-10 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-        <p>© 2026 Budgetly. Money, made legible.</p>
-        <div className="flex gap-6">
-          <Link to="/pricing" className="hover:text-foreground">
-            Pricing
-          </Link>
-          <Link to="/insights" className="hover:text-foreground">
-            Insights
-          </Link>
-          <Link to="/signup" className="hover:text-foreground">
-            Create account
-          </Link>
+      <div className="mx-auto max-w-6xl px-5 py-10">
+        <div className="grid gap-10 md:grid-cols-4">
+          <div className="md:col-span-2">
+            <p className="text-lg font-bold">budgetly</p>
+            <p className="mt-2 max-w-sm text-sm text-muted-foreground">
+              Money, made legible. Track income, expenses, and savings goals with clarity.
+            </p>
+            <p className="mt-4 text-sm text-muted-foreground">© 2026 Budgetly.</p>
+          </div>
+          <div>
+            <p className="text-sm font-semibold">Product</p>
+            <div className="mt-3 flex flex-col gap-2 text-sm text-muted-foreground">
+              <Link to="/pricing" className="hover:text-foreground">
+                Pricing
+              </Link>
+              <Link to="/insights" className="hover:text-foreground">
+                Insights
+              </Link>
+              <Link to="/about" className="hover:text-foreground">
+                About
+              </Link>
+              <Link to="/blog" className="hover:text-foreground">
+                Blog
+              </Link>
+              <Link to="/help" className="hover:text-foreground">
+                Help
+              </Link>
+            </div>
+          </div>
+          <div>
+            <p className="text-sm font-semibold">Legal</p>
+            <div className="mt-3 flex flex-col gap-2 text-sm text-muted-foreground">
+              <Link to="/privacy" className="hover:text-foreground">
+                Privacy policy
+              </Link>
+              <Link to="/terms" className="hover:text-foreground">
+                Terms of service
+              </Link>
+              <Link to="/contact" className="hover:text-foreground">
+                Contact
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

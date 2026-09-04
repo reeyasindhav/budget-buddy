@@ -8,7 +8,8 @@ export const Route = createFileRoute("/pricing")({
       { title: "Pricing — Budgetly" },
       {
         name: "description",
-        content: "Simple Budgetly plans: free budgeting, Plus for goals and Family for shared money.",
+        content:
+          "Simple Budgetly plans: free budgeting, Plus for goals and Family for shared money.",
       },
       { property: "og:title", content: "Pricing — Budgetly" },
       {
@@ -79,7 +80,9 @@ function Pricing() {
               )}
               <h2 className="mt-4 text-lg font-semibold">{p.name}</h2>
               <p className="mt-3 text-4xl font-bold">{p.price}</p>
-              <p className={`text-sm ${p.featured ? "text-ink-foreground/60" : "text-muted-foreground"}`}>
+              <p
+                className={`text-sm ${p.featured ? "text-ink-foreground/60" : "text-muted-foreground"}`}
+              >
                 {p.note}
               </p>
               <ul className="mt-7 space-y-3 text-sm">
@@ -106,7 +109,10 @@ function Pricing() {
 
         <div className="surface mt-16 divide-y divide-border">
           {[
-            ["Can I switch plans later?", "Yes — upgrade or downgrade anytime, prorated instantly."],
+            [
+              "Can I switch plans later?",
+              "Yes — upgrade or downgrade anytime, prorated instantly.",
+            ],
             ["Do you store my bank credentials?", "No. Connections are read-only and tokenised."],
             ["Is there a student discount?", "Plus is 50% off with a valid student email."],
           ].map(([q, a]) => (

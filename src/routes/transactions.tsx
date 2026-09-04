@@ -9,7 +9,10 @@ export const Route = createFileRoute("/transactions")({
   head: () => ({
     meta: [
       { title: "Transactions — Budgetly" },
-      { name: "description", content: "Search, filter and add transactions across every connected account in Budgetly." },
+      {
+        name: "description",
+        content: "Search, filter and add transactions across every connected account in Budgetly.",
+      },
       { property: "og:title", content: "Transactions — Budgetly" },
       { property: "og:description", content: "A searchable history of income and expenses." },
     ],
